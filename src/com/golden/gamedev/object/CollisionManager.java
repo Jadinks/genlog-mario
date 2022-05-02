@@ -20,6 +20,7 @@ package com.golden.gamedev.object;
 import java.awt.image.BufferedImage;
 
 import com.golden.gamedev.object.collision.CollisionRect;
+import com.golden.gamedev.object.collision.CollisionShape;
 
 /**
  * <code>CollisionManager</code> class is the base collision check abstract
@@ -170,9 +171,22 @@ public abstract class CollisionManager {
 	/**
 	 * Returns the intersection rect of two rectangle.
 	 */
-	public static CollisionRect getIntersectionRect(double x1, double y1, int width1, int height1, double x2, double y2, int width2, int height2) {
-		double x12 = x1 + width1, y12 = y1 + height1, x22 = x2 + width2, y22 = y2
-		        + height2;
+	public static CollisionRect getIntersectionRect(CollisionShape shape1, CollisionShape shape2) {
+		
+		double x1 = shape1.getX(),
+			y1 = shape1.getY(),
+			width1 = shape1.getWidth(),
+			height1 = shape1.getHeight();
+
+		double x2 = shape2.getX(),
+			y2 = shape2.getY(),
+			width2 = shape2.getWidth(),
+			height2 = shape2.getHeight();
+
+		double x12 = x1 + width1,
+			y12 = y1 + height1,
+			x22 = x2 + width2,
+			y22 = y2 + height2;
 		
 		if (x1 < x2) {
 			x1 = x2;

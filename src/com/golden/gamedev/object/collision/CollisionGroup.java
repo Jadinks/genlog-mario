@@ -201,10 +201,7 @@ public abstract class CollisionGroup extends BasicCollisionGroup {
 			}
 			
 			// calculate the intersection rectangle
-			CollisionRect iRect = CollisionManager.getIntersectionRect(shape1
-			        .getX(), shape1.getY(), shape1.getWidth(), shape1
-			        .getHeight(), shape2.getX(), shape2.getY(), shape2
-			        .getWidth(), shape2.getHeight());
+			CollisionRect iRect = CollisionManager.getIntersectionRect(shape1, shape2);
 			
 			// calculate collision side using the intersection rect
 			if (iRect.width <= iRect.height) {
